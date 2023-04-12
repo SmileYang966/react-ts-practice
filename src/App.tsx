@@ -1,26 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './ToDoList.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import ToDoListHeader from './ToDoListHeader';
+import ToDoListBody from './ToDoListBody';
+import ToDoListBottom from './ToDoListBottom';
+import { type } from 'os';
+import { TodoItem , AppToDos } from './ToDoList'
+
+
+const todos : TodoItem[] = [
+  {
+    id : 1,
+    text : '吃饭',
+    done : true
+  },
+  {
+    id : 2,
+    text : '洗澡 ',
+    done : false
+  },
+  {
+    id : 3,
+    text : '睡觉',
+    done : false
+  }
+]
+
+class App extends Component<{},AppToDos>{
+
+  todoData : AppToDos = {
+    todos : todos
+  }
+
+  render() {
+    return (
+    <div className="AppTop">
+      <ToDoListHeader/>
+      <ToDoListBody todos = {todos}/>
+      <ToDoListBottom/>
     </div>
-  );
+    )
+  }
 }
+
+
 
 export default App;

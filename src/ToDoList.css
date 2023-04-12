@@ -1,0 +1,49 @@
+.AppTop{
+  flex:1;
+}
+
+/* Header */
+.headerMain{
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  height: 70px;
+  background-color: rebeccapurple;
+}
+
+.headerMain .arrowDown{
+  width:30px;
+  height:30px;
+}
+
+.headerMain .inputClass{
+  flex:1;
+  height: 35px;
+  margin-left: 10px;
+}
+
+::-webkit-input-placeholder {
+  color:lightgray;
+  font-size: 18px;
+}
+
+
+
+
+/* Body */
+.bodyMain{
+  height: 200px;
+  background-color: aqua;
+}
+
+
+/* Bottom */
+.bodyBottom{
+  height: 50px;
+  background-color: cadetblue;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
