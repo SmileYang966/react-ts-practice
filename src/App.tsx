@@ -24,12 +24,17 @@ const todos : TodoItem[] = [
     id : 3,
     text : '睡觉',
     done : false
+  },
+  {
+    id : 4,
+    text : '健身',
+    done : false
   }
 ]
 
 class App extends Component<{},AppToDos>{
 
-  todoData : AppToDos = {
+  state : AppToDos = {
     todos : todos
   }
 
@@ -37,7 +42,7 @@ class App extends Component<{},AppToDos>{
     return (
     <div className="AppTop">
       <ToDoListHeader/>
-      <ToDoListBody todos = {todos}/>
+      <ToDoListBody todos = {this.state.todos }/>
       <ToDoListBottom/>
     </div>
     )
