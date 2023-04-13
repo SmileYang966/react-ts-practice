@@ -41,11 +41,40 @@ class App extends Component<{},AppToDos>{
   render() {
     return (
     <div className="AppTop">
-      <ToDoListHeader/>
-      <ToDoListBody todos = {this.state.todos }/>
+      <ToDoListHeader onAddToTask={this.addTask}/>
+      <ToDoListBody todos = {this.state.todos } changeTaskStatus={this.isChangeTaskStatus}/>
       <ToDoListBottom/>
     </div>
     )
+  }
+
+  addTask = (text : string) => {
+    console.log("addTask ----- text is ",text);
+    const { todos } = this.state;
+    const id = todos.length === 0 ? 1 : todos[todos.length-1].id + 1;     
+    const newTask : TodoItem = {
+      id : id,
+      text : text,
+      done : false 
+    }
+
+    this.setState({
+      todos : [...todos,newTask]
+    })
+  }
+
+  isChangeTaskStatus = (isTaskCompleted : boolean,taskIndex : number) => {
+    const { todos } = this.state;
+    let task = todos[taskIndex];
+    task.done = isTaskCompleted;
+
+    todos.splice(taskIndex,1,task)
+
+    console.log("todos is ",JSON.stringify(todos));
+
+    this.setState({
+      todos : todos
+    })
   }
 }
 
